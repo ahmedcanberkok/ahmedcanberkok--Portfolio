@@ -1,8 +1,8 @@
 const db = require('../../config/database');
 
-const getSkills = async (language) => {
-  const columns = language === 'tr' ? ['name_tr as name'] : ['name_en as name'];
-  return db('skills').select(columns);
+const getSkills = async () => {
+  // Artık sadece İngilizce sütunu seçiyoruz
+  return db('skills').select(['name']);
 };
 
 module.exports = {

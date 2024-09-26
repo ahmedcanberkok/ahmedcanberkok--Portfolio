@@ -64,11 +64,24 @@
               <li><a href="#works" class="smoothscroll">Projects</a></li>
               <li><a href="#contact" class="smoothscroll">contact</a></li>
             </ul>
+            <div class="language-switcher">
+              <button onclick="toggleLanguage('')" id="language-btn" class="lang-btn"> En</button>
+          </div>
           </nav>
+          
         </div>
       </header>
       <!-- end s-header -->
-
+      <script>function toggleLanguage() {
+        const langBtn = document.getElementById('language-btn');
+        if (langBtn.textContent === "EN") {
+            langBtn.textContent = "TR";
+        } else {
+            langBtn.textContent = "EN";
+            
+        }
+    }
+    </script>
       <!-- ## main content
         ==================================================- -->
       <main class="s-content">

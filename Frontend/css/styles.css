@@ -2977,6 +2977,10 @@
  
  .main-nav {
      padding : 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
  }
  
  .main-nav a {
@@ -2988,16 +2992,14 @@
  }
  
  .main-nav ul {
-     list-style       : none;
-     display          : flex;
-     flex-flow        : row nowrap;
-     margin           : 0;
-     padding          : 0;
-     background-color : var(--color-body);
-     border-width     : 1px;
-     border-color     : var(--color-border);
-     border-style     : none solid solid solid;
- }
+    display: contents;
+    justify-content: center;
+    align-items: center;
+    gap: 40px; /* Menü elemanları arasındaki boşluk */
+    list-style: none;
+    padding: 10;
+    margin: 0;
+}
  
  .main-nav li {
      flex         : 1 1 0%;
@@ -3008,7 +3010,28 @@
  .main-nav li:last-child {
      border-right : none;
  }
- 
+
+ .lang-btn {
+    background-color: transparent;
+    border: 1px solid #fff; /* Sınır rengi beyaz */
+    color: #fff; /* Yazı rengi beyaz */
+    padding: 4px 8px; /* Simetrik padding */
+    cursor: pointer;
+    font-size: 12px; /* Yazı boyutu */
+    border-radius: 4px; /* Hafif yuvarlatılmış köşeler */
+    transition: background-color 0.3s, color 0.3s;
+    width: 40px; /* Sabit genişlik */
+    height: 32px; /* Sabit yükseklik */
+    display: flex; /* Ortalamak için */
+    justify-content: center; /* Yatayda ortalama */
+    align-items: center; /* Dikeyde ortalama */
+}
+
+.lang-btn:hover {
+    background-color: #fff;
+    color: #000; /* Hover sırasında yazı rengi siyah olacak */
+}
+
  /* --------------------------------------------------------------------
   * ## mobile menu toggle
   * -------------------------------------------------------------------- */
