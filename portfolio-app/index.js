@@ -1,7 +1,8 @@
 require('dotenv').config();
-
 const express = require('express');
 const cors = require('cors');
+const path = require('path'); // Path kütüphanesini ekleyelim
+
 
 // Controller dosyalarını import ediyoruz
 const skillController = require('./src/controllers/skillController');
@@ -14,20 +15,23 @@ const app = express();
 // Middleware'leri ekliyoruz
 app.use(cors());
 app.use(express.json());
-app.use(express.static('public'));
 
-// Route'ları tanımlıyoruz
+// 'public' klasörünü statik dosya kökü olarak belirliyoruz
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'frontend', 'index.html')); 
+});
+
+
+// API route'larını tanımlıyoruz
 app.get('/api/education', educationController.getEducation);
 app.get('/api/experience', experienceController.getExperience);
 app.get('/api/skills', skillController.getSkills);
 app.get('/api/projects', projectController.getProjects);
 
-// Varsayılan selamlama route'u
-app.get('/', (req, res) => {
-  res.json({
-    message: "Welcome to the API!", // Artık dil çevirisi yok, doğrudan İngilizce mesaj
-  });
-});
+// Ana sayfayı ('/') ziyaret eden kullanıcılar frontend'in 'index.html' dosyasını görsün
+
 
 // Server'ı başlatıyoruz
 const PORT = process.env.PORT || 3000;

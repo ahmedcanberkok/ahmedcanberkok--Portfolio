@@ -14,14 +14,14 @@
 
     <!-- CSS
     ================================================== -->
-    <link rel="stylesheet" href="css/vendor.css" />
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="frontend/css/vendor.css" />
+    <link rel="stylesheet" href="frontend/css/styles.css" />
 
     <!-- favicons
     ================================================== -->
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="logo.svg" />
-    <link rel="icon" type="image/png" sizes="16x16" href="logo.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="frontend/logo.svg" />
+    <link rel="icon" type="image/png" sizes="16x16" href="frontend/logo.svg" />
     <link rel="manifest" href="site.webmanifest" />
   </head>
 
@@ -64,24 +64,13 @@
               <li><a href="#works" class="smoothscroll">Projects</a></li>
               <li><a href="#contact" class="smoothscroll">contact</a></li>
             </ul>
-            <div class="language-switcher">
-              <button onclick="toggleLanguage('')" id="language-btn" class="lang-btn"> En</button>
-          </div>
+            
           </nav>
           
         </div>
       </header>
       <!-- end s-header -->
-      <script>function toggleLanguage() {
-        const langBtn = document.getElementById('language-btn');
-        if (langBtn.textContent === "EN") {
-            langBtn.textContent = "TR";
-        } else {
-            langBtn.textContent = "EN";
-            
-        }
-    }
-    </script>
+     
       <!-- ## main content
         ==================================================- -->
       <main class="s-content">
@@ -135,10 +124,10 @@
           <div class="row about-info wide" data-animate-block>
             <div class="column lg-6 md-12 about-info__pic-block" >
               <img
-                src="images/about-photo@2x.png"
+                src="frontend/images/about-photo@2x.png"
                 srcset="
-                  images/about-photo@2x.png 1x,
-                  images/about-photo@2x.png 2x
+                  frontend/images/about-photo@2x.png 1x,
+                  frontend/images/about-photo@2x.png 2x
                 "
                 alt=""
                 class="about-info__pic"
@@ -575,7 +564,7 @@
 
     <!-- Java Script
     ================================================== -->
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+    <script src="frontend/js/plugins.js"></script>
+    <script src="frontend/js/main.js"></script>
   </body>
 </html>

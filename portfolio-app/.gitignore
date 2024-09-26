@@ -1,5 +1,5 @@
 # Backend ve frontend için node_modules klasörlerini göz ardı et
-/backend/node_modules/
+/node_modules/
 
 # Frontend build çıktısını göz ardı et
 /frontend/build/
