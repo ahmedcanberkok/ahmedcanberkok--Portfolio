@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html class="no-js ss-preload" lang="en">
+  <head>
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8" />
+    <title>Ahmed Canberk Ok</title>
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/vendor.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="logo.svg" />
+    <link rel="icon" type="image/png" sizes="16x16" href="logo.svg" />
+    <link rel="manifest" href="site.webmanifest" />
+  </head>
+
+  <body id="top">
+    <!-- # preloader
+    ================================================== -->
+    <div id="preloader">
+      <div id="loader"></div>
+    </div>
+
+    <!-- # page wrap
+    ================================================== -->
+    <div class="s-pagewrap">
+      <div class="circles">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <!-- ## site header 
+        ================================================== -->
+      <header class="s-header">
+        <div class="header-mobile">
+          <span class="mobile-home-link"
+            ><a href="index.html">Canberk OK.</a></span
+          >
+          <a class="mobile-menu-toggle" href="#0"><span>Menu</span></a>
+        </div>
+
+        <div class="row wide main-nav-wrap">
+          <nav class="column lg-12 main-nav">
+            <ul>
+              <li><a href="index.html" class="home-link">Canberk.</a></li>
+              <li class="current">
+                <a href="#intro" class="smoothscroll">Intro</a>
+              </li>
+              <li><a href="#about" class="smoothscroll">About</a></li>
+              <li><a href="#works" class="smoothscroll">Projects</a></li>
+              <li><a href="#contact" class="smoothscroll">contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <!-- end s-header -->
+
+      <!-- ## main content
+        ==================================================- -->
+      <main class="s-content">
+        <!-- ### intro
+            ================================================== -->
+        <section id="intro" class="s-intro target-section">
+          <div class="row intro-content wide">
+            <div class="column">
+              <div class="text-pretitle with-line">Hello World</div>
+
+              <h1 class="text-huge-title">
+                I'm Canberk. <br />
+                I'm a Software Developer. I can<br />
+                craft solid and scalable products.Let's meet! <br />
+              </h1>
+            </div>
+
+            <ul class="intro-social">
+              <li>
+                <a href="https://www.linkedin.com/in/ahmedcanberkok/"
+                  >Linkedin</a
+                >
+              </li>
+              <li><a href="#0">Twitter</a></li>
+              <li><a href="https://github.com/ahmedcanberkok">Github</a></li>
+              <li><a href="https://www.instagram.com/acanberkok/">Instagram</a></li>
+            </ul>
+          </div>
+          <!-- end intro content -->
+
+          <a href="#about" class="intro-scrolldown smoothscroll">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+            >
+              <path
+                d="M11 21.883l-6.235-7.527-.765.644 7.521 9 7.479-9-.764-.645-6.236 7.529v-21.884h-1v21.883z"
+              />
+            </svg>
+          </a>
+        </section>
+        <!-- end s-intro -->
+
+        <!-- ### about
+            ================================================== -->
+        <section id="about" class="s-about target-section">
+          <div class="row about-info wide" data-animate-block>
+            <div class="column lg-6 md-12 about-info__pic-block" >
+              <img
+                src="images/about-photo@2x.png"
+                srcset="
+                  images/about-photo@2x.png 1x,
+                  images/about-photo@2x.png 2x
+                "
+                alt=""
+                class="about-info__pic"
+                data-animate-el
+              />
+            </div>
+
+            <div class="column lg-6 md-12">
+              <div class="about-info__text">
+                <h2 class="text-pretitle with-line" data-animate-el>About</h2>
+                <p class="attention-getter" data-animate-el>
+                  As a passionate software developer,
+                   I specialize in backend systems using Java, .NET, and Node.js, 
+                   creating robust, reliable server-side applications. 
+                   Proficient in API integrations, I craft efficient interfaces with React.
+                   I prioritize scalable solutions and thrive in collaborative environments, 
+                   committed to continuous growth and adding value.
+                </p>
+                <a href="/Frontend/assets/ahmedCanberkOkCv.pdf" class="btn btn--medium u-fullwidth" data-animate-el download
+                  >Download CV</a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- about-info -->
+
+          <!-- skills-info -->
+          <div class="row about-expertise" data-animate-block>
+            <div class="column lg-12">
+              <h2 class="text-pretitle" data-animate-el>SKILLS</h2>
+
+              <ul class="skills-list h1" data-animate-el></ul>
+            </div>
+            <!-- skills-info-end -->
+
+            <script>
+              // Backend API URL
+              const apiUrl = "http://127.0.0.1:3000/api/skills";
+
+              // Veriyi çekme işlemi
+              fetch(apiUrl)
+                .then((response) => {
+                  if (!response.ok) {
+                    throw new Error(
+                      "Veri çekilemedi, hata: " + response.status
+                    );
+                  }
+                  return response.json();
+                })
+                .then((data) => {
+                  // `data` bir dizi olduğunda (örneğin ["JavaScript", "HTML", "CSS", "React", "Node.js"])
+                  const skillsList = document.querySelector(".skills-list");
+
+                  data.forEach((skill) => {
+                    const li = document.createElement("li");
+                    li.textContent = `${skill.name}`;
+                    skillsList.appendChild(li);
+                  });
+                })
+                .catch((error) => {
+                  console.error("Hata:", error);
+                });
+            </script>
+          </div>
+          <!-- end about-w -->
+
+          <div class="row about-timelines" data-animate-block>
+            <div class="column lg-6 tab-12">
+              <h2 class="text-pretitle" data-animate-el>Experience</h2>
+
+              <div class="timeline" id="experience-timeline" data-animate-el></div>
+              <!-- end timeline -->
+
+
+            </div>
+            <!-- end column -->
+
+            <script>
+              // Backend'den verileri çekmek için kullanılan URL
+              const experienceApiUrl = "http://127.0.0.1:3000/api/experience";
+
+              // Veriyi çekme işlemi
+              fetch(experienceApiUrl)
+                .then((response) => {
+                  if (!response.ok) {
+                    throw new Error(
+                      "Veri çekilemedi, hata: " + response.status
+                    );
+                  }
+                  return response.json();
+                })
+                .then((data) => {
+                  const timelineContainer = document.querySelector("#experience-timeline");
+
+                  // Her bir deneyim verisini sayfaya ekleme
+                  data.forEach((experience) => {
+                    // timeline__block div oluştur
+                    const timelineBlock = document.createElement("div");
+                    timelineBlock.classList.add("timeline__block");
+
+                    // timeline__bullet div oluştur
+                    const timelineBullet = document.createElement("div");
+                    timelineBullet.classList.add("timeline__bullet");
+
+                    // timeline__header div oluştur
+                    const timelineHeader = document.createElement("div");
+                    timelineHeader.classList.add("timeline__header");
+
+                    const companyTitle = document.createElement("h4");
+                    companyTitle.classList.add("timeline__title");
+                    companyTitle.textContent = experience.company_name;
+
+                    const roleMeta = document.createElement("h5");
+                    roleMeta.classList.add("timeline__meta");
+                    roleMeta.textContent = experience.position;
+
+                    const timeframeParagraph = document.createElement("p");
+                    timeframeParagraph.classList.add("timeline__timeframe");
+                    timeframeParagraph.textContent = experience.date;
+
+                    // timeline__header içine ekleme
+                    timelineHeader.appendChild(companyTitle);
+                    timelineHeader.appendChild(roleMeta);
+                    timelineHeader.appendChild(timeframeParagraph);
+
+                    // timeline__desc div oluştur
+                    const timelineDesc = document.createElement("div");
+                    timelineDesc.classList.add("timeline__desc");
+
+                    const descParagraph = document.createElement("p");
+                    descParagraph.textContent = experience.description;
+
+                    // timeline__desc içine açıklamayı ekle
+                    timelineDesc.appendChild(descParagraph);
+
+                    // timeline__block içine tüm elemanları ekle
+                    timelineBlock.appendChild(timelineBullet);
+                    timelineBlock.appendChild(timelineHeader);
+                    timelineBlock.appendChild(timelineDesc);
+
+                    // timeline içine timeline__block'u ekle
+                    timelineContainer.appendChild(timelineBlock);
+                  });
+                })
+                .catch((error) => {
+                  console.error("Hata:", error);
+                });
+            </script>
+
+            <div class="column lg-6 tab-12">
+              <h2 class="text-pretitle" data-animate-el>Education</h2>
+
+              <div class="timeline" id="education-timeline" data-animate-el>
+
+              </div>
+              <!-- end timeline -->
+            </div>
+            <!-- end column -->
+             
+            <script>
+                // Backend'den verileri çekmek için kullanılan URL
+                const educationApiURL = "http://127.0.0.1:3000/api/education";
+  
+                // Veriyi çekme işlemi
+                fetch(educationApiURL)
+                  .then((response) => {
+                    if (!response.ok) {
+                      throw new Error(
+                        "Veri çekilemedi, hata: " + response.status
+                      );
+                    }
+                    return response.json();
+                  })
+                  .then((data) => {
+                    const timelineContainer = document.querySelector("#education-timeline");
+  
+                    // Her bir deneyim verisini sayfaya ekleme
+                    data.forEach((education) => {
+                      // timeline__block div oluştur
+                      const timelineBlock = document.createElement("div");
+                      timelineBlock.classList.add("timeline__block");
+  
+                      // timeline__bullet div oluştur
+                      const timelineBullet = document.createElement("div");
+                      timelineBullet.classList.add("timeline__bullet");
+  
+                      // timeline__header div oluştur
+                      const timelineHeader = document.createElement("div");
+                      timelineHeader.classList.add("timeline__header");
+  
+                      const companyTitle = document.createElement("h4");
+                      companyTitle.classList.add("timeline__title");
+                      companyTitle.textContent = education.university_name;
+  
+                      const roleMeta = document.createElement("h5");
+                      roleMeta.classList.add("timeline__meta");
+                      roleMeta.textContent = education.program;
+  
+                      const timeframeParagraph = document.createElement("p");
+                      timeframeParagraph.classList.add("timeline__timeframe");
+                      timeframeParagraph.textContent = education.date;
+  
+                      // timeline__header içine ekleme
+                      timelineHeader.appendChild(companyTitle);
+                      timelineHeader.appendChild(roleMeta);
+                      timelineHeader.appendChild(timeframeParagraph);
+  
+                      // timeline__desc div oluştur
+                      const timelineDesc = document.createElement("div");
+                      timelineDesc.classList.add("timeline__desc");
+  
+                      const descParagraph = document.createElement("p");
+                      descParagraph.textContent = education.description;
+  
+                      // timeline__desc içine açıklamayı ekle
+                      timelineDesc.appendChild(descParagraph);
+  
+                      // timeline__block içine tüm elemanları ekle
+                      timelineBlock.appendChild(timelineBullet);
+                      timelineBlock.appendChild(timelineHeader);
+                      timelineBlock.appendChild(timelineDesc);
+  
+                      // timeline içine timeline__block'u ekle
+                      timelineContainer.appendChild(timelineBlock);
+                    });
+                  })
+                  .catch((error) => {
+                    console.error("Hata:", error);
+                  });
+              </script>
+          </div>
+
+          
+          <!-- end about-timelines -->
+        </section>
+        <!-- end s-about -->
+
+   <!-- ### works
+            ================================================== -->
+<section id="works" class="s-works target-section">
+  <div class="row works-portfolio">
+      <div class="column lg-12" data-animate-block>
+          <h2 class="text-pretitle" data-animate-el>
+              Projects
+          </h2>
+          <p class="h1" data-animate-el>
+              Here are some of my  projects I have done lately. Feel free to check them out.
+          </p>
+
+          <ul class="folio-list row block-lg-one-half block-stack-on-1000">
+              <!-- Projeler backend'den dinamik olarak buraya yüklenecek -->
+          </ul> <!-- end folio-list -->
+      </div> <!-- end column -->
+  </div> <!-- end works-portfolio -->
+</section> <!-- end s-works -->
+<script>
+  // Backend'den verileri çekmek için kullanılan URL
+  const projectsApiURL = "http://127.0.0.1:3000/api/projects"; // Projeler için kullanacağınız backend API URL
+  
+  // Veriyi çekme işlemi
+  fetch(projectsApiURL)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Veri çekilemedi, hata: " + response.status);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      const projectListContainer = document.querySelector(".folio-list");
+      const worksPortfolioContainer = document.querySelector(".row.works-portfolio");
+  
+      // Her bir proje verisini sayfaya ekleme
+      data.forEach((project, index) => {
+        // folio-list__item li elemanı oluştur
+        const projectListItem = document.createElement("li");
+        projectListItem.classList.add("folio-list__item", "column");
+        projectListItem.setAttribute("data-animate-el", "");
+  
+        // Proje içeriğini oluştur
+        projectListItem.innerHTML = `
+          <a class="folio-list__item-link" href="#modal-${index + 1}">
+            <div class="folio-list__item-pic">
+              <img
+                src="${project.image_url}"
+                srcset="${project.image_url} 1x, ${project.image_url} 2x"
+                alt="${project.title}"
+              />
+            </div>
+            <div class="folio-list__item-text">
+              <div class="folio-list__item-title">${project.title}</div>
+            </div>
+          </a>
+          <a class="folio-list__proj-link" href="${project.project_link}" title="project link">
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>
+          </a>
+        `;
+  
+        // Oluşturulan li elemanını proje listesine ekle
+        projectListContainer.appendChild(projectListItem);
+  
+        // Modal içeriği oluşturulacak
+        const modalItem = document.createElement("div");
+        modalItem.id = `modal-${index + 1}`;
+        modalItem.classList.add("modal-popup-wrapper");
+
+        modalItem.hidden = true;
+  
+        modalItem.innerHTML = `
+          <div class="modal-popup">
+            <span class="close-btn">&times;</span>
+              <img src="${project.image_url}" alt="${project.title}">
+      
+              <div class="modal-popup__desc">
+                  <h5>${project.title}</h5>
+                  <p>${project.description}</p>
+                  <ul class="modal-popup__cat">
+                      <li>${project.category || "Category"}</li>
+                  </ul>
+              </div>
+      
+              <a href="${project.project_link}" class="modal-popup__details">Project link</a>
+          </div>
+        `;
+  
+        // Oluşturulan modal elemanını works-portfolio container'a ekle
+        worksPortfolioContainer.appendChild(modalItem);
+
+      
+      // Pop-up açılma işlemi
+      projectListItem.querySelector('.folio-list__item-link').addEventListener('click', function (event) {
+        event.preventDefault(); // Varsayılan link davranışını engeller
+        modalItem.hidden = false; // Pop-up'ı gösterir
+        modalItem.style.display = 'block'; // Make sure it's displayed
+
+      });
+
+      // Pop-up kapanma işlemi
+      modalItem.querySelector('.close-btn').addEventListener('click', function () {
+        modalItem.hidden = true; // Pop-up'ı gizler
+        modalItem.style.display = 'none'; // Ensure it's removed from view
+
+      });
+
+      // Pop-up dışında bir yere tıklanırsa pop-up'ı kapat
+      window.addEventListener('click', function (event) {
+        if (event.target === modalItem) {
+          modalItem.hidden = true;
+              modalItem.style.display = 'none';
+
+        }
+      });
+    });
+  })
+  .catch((error) => {
+    console.error("Hata:", error);
+  });
+</script>
+  
+
+        <!-- ### contact
+            ================================================== -->
+        <section id="contact" class="s-contact target-section">
+          <div class="row contact-top">
+            <div class="column lg-12">
+              <h1 class="text-pretitle">Let's Work Together.Get In Touch!</h1>
+
+              <p class="h1">
+                
+                I believe we can achieve great things together!
+              </p>
+            </div>
+          </div>
+          <!-- end contact-top -->
+
+          <div class="row contact-bottom">
+            <div class="column lg-3 md-5 tab-6 stack-on-550 contact-block">
+              <h3 class="text-pretitle">Reach me at</h3>
+              <p class="contact-links">
+                <a href="mailto:canberk.ok@gmail.com" class="mailtoui"
+                  >canberk.ok@gmail.com</a
+                >
+                <br />
+                <a href="tel:+905305983306">+90 530 598 33 06</a>
+              </p>
+            </div>
+            <div class="column lg-4 md-5 tab-6 stack-on-550 contact-block">
+              <h3 class="text-pretitle">Social Media</h3>
+              <ul class="contact-social">
+                <li><a href="https://www.linkedin.com/in/ahmedcanberkok/">Linkedin</a></li>
+                <li><a href="#0">Twitter</a></li>
+                <li><a href="https://github.com/ahmedcanberkok">Github</a></li>
+                <li><a href="https://www.instagram.com/acanberkok/">Instagram</a></li>
+              </ul>
+            </div>
+            <div class="column lg-4 md-12 contact-block">
+              <a
+                href="mailto:canberk.ok@gmail.com"
+                class="mailtoui btn btn--medium u-fullwidth contact-btn"
+                >Say Hello</a
+              >
+            </div>
+          </div>
+          <!-- end contact-bottom -->
+        </section>
+        <!-- end contact -->
+      </main>
+      <!-- end s-content -->
+
+      <!-- ## footer
+        ================================================== -->
+      <footer class="s-footer">
+        <div class="row">
+          <div class="ss-go-top">
+            <a class="smoothscroll" title="Back to Top" href="#top">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+              >
+                <path
+                  d="M11 2.206l-6.235 7.528-.765-.645 7.521-9 7.479 9-.764.646-6.236-7.53v21.884h-1v-21.883z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </footer>
+      <!-- end s-footer -->
+    </div>
+    <!-- end -s-pagewrap -->
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

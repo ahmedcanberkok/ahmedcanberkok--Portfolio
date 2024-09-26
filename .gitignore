@@ -1,0 +1,28 @@
+# Backend ve frontend için node_modules klasörlerini göz ardı et
+/backend/node_modules/
+
+# Frontend build çıktısını göz ardı et
+/frontend/build/
+/frontend/dist/
+
+# Backend build çıktısını göz ardı et
+/backend/build/
+/backend/dist/
+
+# Ortam değişkenleri dosyalarını göz ardı et
+/backend/.env
+/frontend/.env
+
+# Log dosyalarını göz ardı et
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Genel olarak gereksiz dosyalar
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.tmp
+*.swp
