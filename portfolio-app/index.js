@@ -22,6 +22,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'frontend', 'index.html')); 
 });
+// CV indirme rotası
+app.get('/download-cv', (req, res) => {
+  const filePath = path.join(__dirname, 'public', 'frontend', 'assets', 'ahmedCanberkOkCv.pdf');
+  res.download(filePath, 'ahmedCanberkOkCv.pdf', (err) => {
+    if (err) {
+      console.error("Dosya indirilemedi:", err);
+      res.status(404).send("Dosya bulunamadı");
+    }
+  });
+});
 
 
 // API route'larını tanımlıyoruz
@@ -36,5 +46,5 @@ app.get('/api/projects', projectController.getProjects);
 // Server'ı başlatıyoruz
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on ${PORT}`);
 });
